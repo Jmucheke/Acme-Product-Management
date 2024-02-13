@@ -1,5 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
-div.card-header {
+
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~font-awesome/css/font-awesome.min.css";
+
+body{
+  font-size: 1rem;
+}
+/* div.card-header {
  font-size: large;
 }
 
@@ -9,11 +16,12 @@ div.card {
 
 .table {
   margin-top: 10px
-}
+} */
 
 a {
-  text-decoration: none; 
+  text-decoration: none;
 }
 a:hover {
   text-decoration: underline;
 }
+/* \bootstrap\dist\css\bootstrap.min.css */
