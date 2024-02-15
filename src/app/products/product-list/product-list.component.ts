@@ -3,11 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IProduct } from 'src/app/interface';
 import { ConvertToSpacesPipe } from 'src/app/shared/convert-to-spaces.pipe';
+import { RouterModule } from '@angular/router';
+import { StarComponent } from 'src/app/shared/star.component';
 
 @Component({
   selector: 'pm-product-list',
   standalone: true,
-  imports: [CommonModule, FormsModule, ConvertToSpacesPipe],
+  imports: [CommonModule, FormsModule, ConvertToSpacesPipe, RouterModule, StarComponent],
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
 })
@@ -83,12 +85,16 @@ export class ProductListComponent implements OnInit {
 
   }
 
+  // onOutletLoaded(component){
+  //   component.rating = this.product.product
+  // }
+
   constructor() { }
   toggleImage(): void {
     this.showImage = !this.showImage;
   }
 
-  ngOnInit(): void { 
-    this._listFilter = "cart"
+  ngOnInit(): void {
+    this._listFilter = ""
   }
 }

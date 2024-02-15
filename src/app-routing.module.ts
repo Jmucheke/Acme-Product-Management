@@ -1,11 +1,18 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
-const routes : Routes =[
+const routes: Routes = [
   {
     path: '',
     loadComponent: () =>
-      import('./app/products/product-list/product-list.component').then((c) => c.ProductListComponent)
+      import('./app/products/product-list/product-list.component').then((c) => c.ProductListComponent),
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import('./app/shared/star.component').then((c) => c.StarComponent)
+      }
+    ]
   },
 ]
 
