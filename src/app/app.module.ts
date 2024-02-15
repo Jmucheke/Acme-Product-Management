@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -12,7 +13,7 @@ import { StarComponent } from './shared/star.component';
     AppComponent
   ],
   imports: [
-    BrowserModule, AppRoutingModule, FormsModule, StarComponent
+    BrowserModule, AppRoutingModule, FormsModule, StarComponent, HttpClientModule
   ],
   bootstrap: [AppComponent]
 })
