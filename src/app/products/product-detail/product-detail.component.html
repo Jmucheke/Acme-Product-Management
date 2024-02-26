@@ -1,5 +1,9 @@
 <div class="card">
   <div class="card-header">
-    {{pageTitle}}
+    {{pageTitle + ': ' + product?.productName}}
+  </div>
+
+  <div class="card-footer">
+    <button (click)="onBack()" class="btn btn-secondary">Back</button>
   </div>
 </div>
