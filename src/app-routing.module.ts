@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
+import { ProductDetailGuard } from "./app/products/product-detail/product-detail.guard";
 
 const routes: Routes = [
   {
@@ -20,16 +21,17 @@ const routes: Routes = [
       import('./app/home/welcome.component').then((c) => c.WelcomeComponent)
   },
   {
-    path:'products/:id',
+    path: 'products/:id',
     loadComponent: () =>
-    import('./app/products/product-detail/product-detail.component').then((c) => c.ProductDetailComponent)
+      import('./app/products/product-detail/product-detail.component').then((c) => c.ProductDetailComponent),
+    canActivate: [ProductDetailGuard]
   },
   {
-    path:'welcome',
-    loadComponent:()=>
+    path: 'welcome',
+    loadComponent: () =>
       import('./app/home/welcome.component').then((c) => c.WelcomeComponent)
   },
-  {path:'', redirectTo:'welcome', pathMatch:'full'},
+  { path: '', redirectTo: 'welcome', pathMatch: 'full' },
   { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
 ]
 
