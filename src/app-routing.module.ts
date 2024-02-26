@@ -20,6 +20,11 @@ const routes: Routes = [
       import('./app/home/welcome.component').then((c) => c.WelcomeComponent)
   },
   {
+    path:'products/:id',
+    loadComponent: () =>
+    import('./app/products/product-detail/product-detail.component').then((c) => c.ProductDetailComponent)
+  },
+  {
     path:'welcome',
     loadComponent:()=>
       import('./app/home/welcome.component').then((c) => c.WelcomeComponent)
