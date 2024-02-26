@@ -19,6 +19,13 @@ export class ProductService {
     );
   }
 
+  // getOneProduct(id:number): IProduct[]{
+  //   return this.http.get(this.productUrl).pipe(
+  //     // tap(data)
+  //   )
+
+  // }
+
   private handleError(err: HttpErrorResponse) {
     let errorMessage = '';
     if (err.error instanceof ErrorEvent) {
