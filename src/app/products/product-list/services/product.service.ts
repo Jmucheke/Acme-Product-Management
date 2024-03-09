@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from "@angular/core";
 import { IProduct } from "src/app/interface";
-import { Observable, catchError, tap, throwError } from 'rxjs';
+import { Observable, catchError, filter, map, tap, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -19,12 +19,20 @@ export class ProductService {
     );
   }
 
-  // getOneProduct(id:number): IProduct[]{
-  //   return this.http.get(this.productUrl).pipe(
-  //     // tap(data)
+  // getOneProduct(id:number): Observable<IProduct>{
+  //   return this.http.get<IProduct[]>(this.productUrl).pipe(
+  //     map(products => products.find(product => product.productId === id)),
+  //     filter(product => !!product),
+  //     catchError(this.handleError)
   //   )
 
   // }
+
+  getProduct(id:number): Observable<IProduct | undefined>{
+    return this.getProducts().pipe(
+      map((products: IProduct[]) => products.find(p => p.productId ===id))
+    )
+  }
 
   private handleError(err: HttpErrorResponse) {
     let errorMessage = '';

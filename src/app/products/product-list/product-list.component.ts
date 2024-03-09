@@ -54,20 +54,20 @@ export class ProductListComponent implements OnInit, OnDestroy {
   //   component.rating = this.product.product
   // }
 
-  
+
   toggleImage(): void {
     this.showImage = !this.showImage;
   }
 
   ngOnInit(): void {
     this.sub = this.productService.getProducts().subscribe({
-      next:products =>{ 
+      next:products =>{
         this.products = products
         this.filteredProducts = this.products
       },
       error:err=> this.errorMessage=err
     });
-    
+
   }
 
   onRatingClicked(message:string): void{
